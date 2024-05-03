@@ -1,0 +1,34 @@
+name: telegram message
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Text file exists
+        run: cat test.txt
+
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        if: always()
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          message: |
+            *${{ github.actor }} pushed a commit*
+
+            *Commit Message*:
+            `${{ github.event.commits[0].message }}`
+
+            *Status*: ${{ job.status == 'success' && '✅' || '❌' }}
+            
+            *Repository*:
+            `${{ github.repository }}`
+            
+            [See changes](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+        

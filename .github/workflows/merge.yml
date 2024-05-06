@@ -1,0 +1,29 @@
+name: on merge
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  notify_pull_request_merge:
+    name: Notify Pull Request Merge
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send Telegram Message on Pull Request Merge
+        uses: appleboy/telegram-action@master
+        if: always()
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          message: |
+            *${{ github.actor }} merged a pull request*
+
+            *Title*: `${{ github.event.pull_request.title }}`
+
+            *Repository*: `${{ github.repository }}`
+
+            [View Pull Request](https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }})

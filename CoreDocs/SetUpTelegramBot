@@ -1,0 +1,10 @@
+The Current settings uses the https://t.me/BaseGitRepo_bot, Here, you can see the logs
+
+If you wish to create your own telegram Bot and add it to your group. Please do the following:
+1. Create a new bot @BotFather
+2. Copy the resulting HTTP API Token 
+3. Add Bot to group you want
+4. Copy group chat ID  (https://api.telegram.org/bot`HTTP API Token`/getUpdates)
+5. Go to Base-Template/settings/secrets/actions and change the following:
+    * TELEGRAM_TO: `Group Chat ID`
+    * TELEGRAM_TOKEN: `HTTP API Token`

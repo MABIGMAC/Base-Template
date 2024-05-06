@@ -1,5 +1,8 @@
-name: telegram message
+name: on push
 on: [push]
+
+# Add a condition that always evaluates to false
+
 jobs:
 
   build:
@@ -9,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
-      - name: Text file exists
+      - name: Example build step
         run: cat test.txt
 
       - name: send telegram message on push
@@ -29,6 +32,10 @@ jobs:
             
             *Repository*:
             `${{ github.repository }}`
+
+            *Branch*:
+            `${{ github.ref }}`
             
             [See changes](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
-        
+
+

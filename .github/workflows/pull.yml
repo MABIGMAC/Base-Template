@@ -1,0 +1,37 @@
+name: on pull request
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  notify_pull_request:
+    name: Notify Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send Telegram Message on Pull Request
+        uses: appleboy/telegram-action@master
+        if: always()
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          message: |
+            *${{ github.actor }} created a pull request*
+
+            *Title*: `${{ github.event.pull_request.title }}`
+
+            *Status*: ${{ github.event.pull_request.state }}
+            
+            *Repository*:
+            `${{ github.repository }}`
+
+            *Labels*: ${{ join(github.event.pull_request.labels.*.name, ', ') }}
+
+            *Assignees*: ${{ join(github.event.pull_request.assignees.*.login, ', ') }}
+
+            *Reviewers*: ${{ join(github.event.pull_request.requested_reviewers.*.login, ', ') }}
+            
+            [View Pull Request](https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }})

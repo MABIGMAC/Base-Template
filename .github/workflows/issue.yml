@@ -9,59 +9,75 @@ jobs:
     name: Create Issue
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      - name: Send Telegram Message on Issue Creation
-        uses: appleboy/telegram-action@master
+      - name: Send Telegram message on issue creation via curl
         if: github.event_name == 'issues' && github.event.action == 'opened'
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: markdown
-          message: |
-            *${{ github.actor }} created an issue*
-
-            *Title*: `${{ github.event.issue.title }}`
-
-            *Status*: ${{ github.event.issue.state }}
-
-            *Assignees*: ${{ join(github.event.issue.assignees.*.login, ', ') }}
-            
-            *Labels*: ${{ join(github.event.issue.labels.*.name, ', ') }}
-            
-            *Repository*:
-            `${{ github.repository }}`
-            
-            [View Issue](https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number }})
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          TELEGRAM_THREAD_ID: ${{ vars.TELEGRAM_THREAD_ID_ISSUES }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_STATE: ${{ github.event.issue.state }}
+          ISSUE_ASSIGNEES: ${{ join(github.event.issue.assignees.*.login, ', ') }}
+          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
+          REPOSITORY: ${{ github.repository }}
+          ACTOR: ${{ github.actor }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+          -d chat_id="${TELEGRAM_CHAT_ID}" \
+          -d message_thread_id="${TELEGRAM_THREAD_ID}" \
+          -d parse_mode="Markdown" \
+          -d text="*${ACTOR} created an issue*
+      
+          *Title*: \`${ISSUE_TITLE}\`
+      
+          *Status*: ${ISSUE_STATE}
+      
+          *Assignees*: ${ISSUE_ASSIGNEES}
+      
+          *Labels*: ${ISSUE_LABELS}
+      
+          *Repository*: \`${REPOSITORY}\`
+      
+          [View Issue](https://github.com/${REPOSITORY}/issues/${ISSUE_NUMBER})"
+      
 
   close_issue:
     name: Close Issue
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Send Telegram Message on Issue Close
-        uses: appleboy/telegram-action@master
+  
+      - name: Send Telegram message on issue close via curl
         if: github.event_name == 'issues' && github.event.action == 'closed'
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          format: markdown
-          message: |
-            *${{ github.actor }} closed an issue*
-
-            *Title*: `${{ github.event.issue.title }}`
-
-            *Status*: ${{ github.event.issue.state }}
-
-            *Assignees*: ${{ join(github.event.issue.assignees.*.login, ', ') }}
-            
-            *Labels*: ${{ join(github.event.issue.labels.*.name, ', ') }}
-            
-            *Repository*:
-            `${{ github.repository }}`
-            
-            [View Issue](https://github.com/${{ github.repository }}/issues/${{ github.event.issue.number }})
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+          TELEGRAM_THREAD_ID: ${{ vars.TELEGRAM_THREAD_ID_ISSUES }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_STATE: ${{ github.event.issue.state }}
+          ISSUE_ASSIGNEES: ${{ join(github.event.issue.assignees.*.login, ', ') }}
+          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
+          REPOSITORY: ${{ github.repository }}
+          ACTOR: ${{ github.actor }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+          -d chat_id="${TELEGRAM_CHAT_ID}" \
+          -d message_thread_id="${TELEGRAM_THREAD_ID}" \
+          -d parse_mode="Markdown" \
+          -d text="*${ACTOR} closed an issue*
+  
+          *Title*: \`${ISSUE_TITLE}\`
+  
+          *Status*: ${ISSUE_STATE}
+  
+          *Assignees*: ${ISSUE_ASSIGNEES}
+  
+          *Labels*: ${ISSUE_LABELS}
+  
+          *Repository*: \`${REPOSITORY}\`
+  
+          [View Issue](https://github.com/${REPOSITORY}/issues/${ISSUE_NUMBER})"
+  
 

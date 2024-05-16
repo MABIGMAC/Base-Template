@@ -2,7 +2,7 @@
 name: Feature
 about: 'Create a feature issue '
 title: ''
-labels: backend, feature, frontend, middleend
+labels:  feature, frontend, middleend, backend
 assignees: ''
 
 ---
@@ -15,6 +15,8 @@ A clear and concise description of what the feature should do.
 
 ## Acceptance Criteria
 A clear and concise description of requirements so that when all of them are fulfilled, The issue is considered complete and can be closed.
+- [ ] Objective 1
+- [ ] Objective 2
 
 ## Notes
 Add any other context or screenshots about the feature here.

@@ -17,4 +17,4 @@ jobs:
         iteration-field: Sprint
         iteration: last
         new-iteration: current
-        statuses: 'Backlog,In progress,In review'
+        statuses: 'Backlog,In progress,In review, Epic'

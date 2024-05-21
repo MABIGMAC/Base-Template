@@ -13,7 +13,7 @@ jobs:
       with:
         owner: MABIGMAC
         number: 5
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT }}
         iteration-field: Sprint
         iteration: last
         new-iteration: current

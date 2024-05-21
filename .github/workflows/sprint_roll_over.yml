@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: blombard/move-to-next-iteration@master
+    - uses: blombard/move-to-next-iteration@v0.5.0
       with:
         owner: MABIGMAC
         number: 1
-        token: ${{ secrets.PROJECT_PAT }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         iteration-field: Sprint
         iteration: last
         new-iteration: current

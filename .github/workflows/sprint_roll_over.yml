@@ -1,7 +1,7 @@
 on:
   schedule:
     # Runs "Every 12 Hours, Everyday" (see https://crontab.guru)
-    - cron: '*/5 * * * *'
+    - cron: '0 0,12 * * *'
 
 jobs:
   move-to-next-iteration:
@@ -17,4 +17,4 @@ jobs:
         iteration-field: Sprint
         iteration: last
         new-iteration: current
-        statuses: 'Backlog,In progress,In review, Epic'
+        statuses: 'Backlog,In progress,In review,Epic'

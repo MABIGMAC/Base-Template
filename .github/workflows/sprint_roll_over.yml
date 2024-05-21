@@ -12,7 +12,7 @@ jobs:
     - uses: blombard/move-to-next-iteration@v0.5.0
       with:
         owner: MABIGMAC
-        number: 1
+        number: 5
         token: ${{ secrets.GITHUB_TOKEN }}
         iteration-field: Sprint
         iteration: last

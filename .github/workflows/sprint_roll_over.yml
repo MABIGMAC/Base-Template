@@ -1,0 +1,20 @@
+on:
+  schedule:
+    # Runs "Every 12 Hours, Everyday" (see https://crontab.guru)
+    - cron: '0 12 * * *'
+
+jobs:
+  move-to-next-iteration:
+    name: Move to next iteration
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: blombard/move-to-next-iteration@master
+      with:
+        owner: MABIGMAC
+        number: 1
+        token: ${{ secrets.PROJECT_PAT }}
+        iteration-field: Sprint
+        iteration: last
+        new-iteration: current
+        statuses: 'Backlog,In progress,In review, Epic'

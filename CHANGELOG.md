@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.0](https://github.com/MABIGMAC/Base-Template/compare/v1.0.1...v1.1.0) (2024-05-27)
+## [1.1.0](https://github.com/MABIGMAC/Base-Template/compare/v1.0.2...v1.1.0) (2024-05-27)
 
 
 ### Features
@@ -10,7 +10,6 @@
 
 ### Bug Fixes
 
-* Amend Readme ([#40](https://github.com/MABIGMAC/Base-Template/issues/40)) ([d967ad7](https://github.com/MABIGMAC/Base-Template/commit/d967ad72c78d5447a628b064f3c2ce5b412d7963))
 * Removed sprint roll over workflow ([096f894](https://github.com/MABIGMAC/Base-Template/commit/096f8949baf1d22e0f51237f1ec05abd67583aba))
 
 ## [1.0.1](https://github.com/MABIGMAC/Base-Template/compare/v1.0.0...v1.0.1) (2024-05-24)

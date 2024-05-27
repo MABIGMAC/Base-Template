@@ -31,5 +31,4 @@ Branch Protection:
 ## Screenshot
 
 ## Quick Start
-
 * Run Setup/initialize.sh

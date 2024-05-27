@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/MABIGMAC/Base-Template/compare/v1.0.2...v1.1.0) (2024-05-27)
+
+
+### Features
+
+* added feature 1 ([#37](https://github.com/MABIGMAC/Base-Template/issues/37)) ([#38](https://github.com/MABIGMAC/Base-Template/issues/38)) ([ed330e4](https://github.com/MABIGMAC/Base-Template/commit/ed330e48faa72c02c2cd552b94c3a3e92bc5389a))
+
 ## [1.0.2](https://github.com/MABIGMAC/Base-Template/compare/v1.0.1...v1.0.2) (2024-05-27)
 
 

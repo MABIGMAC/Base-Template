@@ -18,8 +18,6 @@
 | Git Pre-Commits         | Scripts that run automatically before a commit is finalized.<br />Pre-commit hooks can enforce code standards, run tests, or perform other checks                              |
 | Github Pages and Wiki   | GitHub Pages allows users to host static websites directly from their repositories.<br />Wikis provide a collaborative space for project documentation and information sharing |
 
-
-
 # STARLAB Augments
 
 | Feature          | Augments                                                       |
@@ -35,58 +33,81 @@
 |                  | Epics Column                                                   |
 |                  | Automated Roll over issues to next sprint                      |
 
-
-
 # Git Process (Things Users need to memorise)
 
 ## Creating a new Epic issue
 
-* Creating a new issue, use Epic template
-* List the features(tasks) in the Epic
-* Add the sprint
-* Link to project and assign to Epic Column
-
+1. Via Project Board
+   * Click "Add Item" under desired column
+   * Enter name to create Draft
+   * Click into it and "Convert to issue", selecting repo
+   * Edit Description, enter /templates > epic
+   * List the features(tasks) in the Epic
+   * Fill in details and Assign labels
+2. Via Issues Board
+   * Creating a new issue, use Epic template
+   * List the features(tasks) in the Epic
+   * Add the sprint
+   * Link to project and assign to Epic Column
 
 ## Creating a new feature issue
 
-1. Convert to Issue
+1. Via Project Board
 
-   * Inside Epic issue, in the task list, click on the task
+   * Click "Add Item" under desired column
+   * Enter name to create Draft
    * Click inside the new issue,
      * Edit and add /template for the feature template
      * Add the labels
      * Add the sprint
-     * Link to project and assign to Todo Column
-2. Create new issue
+2. Via Issues Board
 
-   * Add new feature template
-   * Adjust the labels
-   * Add the sprint
-   * Goto the Epic issue and edit, adding the index of the new feature issue into the task list
-
+   1. Convert to Issue
+      * Inside Epic issue, in the task list, click on the task
+      * Click inside the new issue,
+        * Edit and add /template for the feature template
+        * Add the labels
+        * Add the sprint
+        * Link to project and assign to Todo Column
+   2. Create new Issue
+      * Add new feature template
+      * Adjust the labels
+      * Add the sprint
+      * Goto the Epic issue and edit, adding the index of the new feature issue into the task list
 
 ## Creating a new bug issue
 
-1. Create new issue
-   1. Add new bug template
-   2. Adjust the labels
-   3. Add the sprint
+1. Via Project Board
+   * Click "Add Item" under desired column
+   * Enter name to create Draft
+   * Click into it and "Convert to issue", selecting repo
+   * Edit Description, enter /templates > Bug
+   * Fill in details and Assign labels
+2. Via Issue Board
+   1. Create new issue
+   2. Add new bug template
+   3. Adjust the labels
+   4. Add the sprint
 
+## Creating Research Tickets
+
+1. Via Project Board
+
+   * Click "Add Item" under desired column
+   * Enter name to create Draft
 
 ## Branching off and coding
 
 1. All dev work should be branched from the dev branch and PR'd into it when completed
-2. New Branches must have the prefix of **feat/*** or **fix/*** (e.g. feat/Implement-system-x)
+2. New Branches must have the prefix of **git conventions**, followed by **/** (e.g. feat/Title)
 3. Git commits must follow git convention format (Enforced by STARLAB Augments: Pre-commit hooks)
 4. All Pull requests **must** follow git convention format in the title naming
    1. Setting fix: or feat: will help the automated release manager identify those pull requests to be included into the changelog
-
 
 ## Release
 
 1. Create a PR from dev to release
 2. A PR will be automated to create a new Tagging
-
 
 # Sprints
 

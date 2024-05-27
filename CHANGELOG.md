@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/MABIGMAC/Base-Template/compare/v1.0.0...v1.0.1) (2024-05-24)
+
+
+### Features
+
+* Removed User Story ([#31](https://github.com/MABIGMAC/Base-Template/issues/31)) ([703985a](https://github.com/MABIGMAC/Base-Template/commit/703985a8d73bb17bf1f5353f930b1dcb19b364b8))
+
 ## 1.0.0 (2024-05-09)
 
 

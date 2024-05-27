@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/MABIGMAC/Base-Template/compare/v1.0.1...v1.0.2) (2024-05-27)
+
+
+### Bug Fixes
+
+* Removed sprint roll over workflow ([096f894](https://github.com/MABIGMAC/Base-Template/commit/096f8949baf1d22e0f51237f1ec05abd67583aba))
+
 ## [1.0.1](https://github.com/MABIGMAC/Base-Template/compare/v1.0.0...v1.0.1) (2024-05-24)
 
 

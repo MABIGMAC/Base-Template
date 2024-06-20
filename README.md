@@ -31,4 +31,6 @@ Branch Protection:
 ## Screenshot
 
 ## Quick Start
-* Run Setup/initialize.sh
+
+* npm install
+* copy commit-msg from Hooks/commit-msg to .husky\\_\commit-msg
